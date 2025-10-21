@@ -16,9 +16,10 @@
     text-align: center;
   }
 
+  /* Responsive Headings */
   .heading1 {
     font-family: 'Playfair Display', serif;
-    font-size: 55px;
+    font-size: clamp(24px, 4vw, 55px);
     font-weight: bold;
     text-shadow: 3px 3px 5px white;
     color: #002366;
@@ -27,7 +28,7 @@
 
   .heading2 {
     font-family: "Cinzel Decorative", cursive;
-    font-size: 62px;
+    font-size: clamp(30px, 5vw, 62px);
     font-weight: bold;
     color: #FFD700;
     -webkit-text-stroke: 2px black;
@@ -37,20 +38,21 @@
 
   .heading3 {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: clamp(20px, 3.5vw, 38px);
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 3px 3px 5px yellow;
     color: green;
   }
 
+  /* Responsive Logo & Passport */
   .logo {
     position: absolute;
     top: 15px;
     left: 15px;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+    width: 15vw;
+    max-width: 150px;
+    height: auto;
   }
 
   .passport-container {
@@ -61,28 +63,29 @@
   }
 
   .passport {
-    width: 150px;
-    height: 170px;
+    width: 15vw;
+    max-width: 150px;
+    height: auto;
     border: 2px solid black;
     object-fit: cover;
   }
 
   .caption {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 18px;
+    font-size: clamp(12px, 1.8vw, 18px);
     font-weight: bold;
     color: #002366;
     margin-top: 8px;
   }
 
-  /* Button Grid Layout */
+  /* Button container */
   .button-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
     justify-items: center;
     margin: 170px auto;
-    max-width: 80%;
+    max-width: 75%;
   }
 
   button {
@@ -94,7 +97,7 @@
     letter-spacing: 1px;
     border: none;
     border-radius: 14px;
-    color: white;
+    color: WHITE;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     transition: all 0.35s ease;
@@ -105,20 +108,39 @@
   button:hover {
     transform: scale(1.07);
     background-position: right center;
-    box-shadow: 0 0 20px rgba(255,255,255,0.5),
-                0 0 40px rgba(255,255,255,0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+                0 0 40px rgba(255, 255, 255, 0.2);
   }
 
-  /* Button Colors */
+  /* Gradient Button Styles */
   .btn1 { background-image: linear-gradient(to right, #89f7fe, #66a6ff); }
   .btn2 { background-image: linear-gradient(to right, #f6d365, #fda085); }
   .btn3 { background-image: linear-gradient(to right, #a1c4fd, #c2e9fb); }
   .btn4 { background-image: linear-gradient(to right, #fbc2eb, #a6c1ee); }
+  .btn5 { background-image: linear-gradient(to right, #fddb92, #d1fdff); }
+  .btn6 { background-image: linear-gradient(to right, #84fab0, #8fd3f4); }
 
   .btn1:hover { box-shadow: 0 0 20px #66a6ff, 0 0 40px #89f7fe; }
   .btn2:hover { box-shadow: 0 0 20px #f6d365, 0 0 40px #fda085; }
   .btn3:hover { box-shadow: 0 0 20px #a1c4fd, 0 0 40px #c2e9fb; }
   .btn4:hover { box-shadow: 0 0 20px #fbc2eb, 0 0 40px #a6c1ee; }
+  .btn5:hover { box-shadow: 0 0 20px #fddb92, 0 0 40px #d1fdff; }
+  .btn6:hover { box-shadow: 0 0 20px #84fab0, 0 0 40px #8fd3f4; }
+
+  /* Responsive button grid */
+  @media (max-width: 1024px) {
+    .button-container { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .button-container { grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 120px; }
+    .logo, .passport { width: 20vw; }
+  }
+
+  @media (max-width: 480px) {
+    .button-container { grid-template-columns: 1fr; gap: 25px; margin-top: 100px; }
+    .logo, .passport { width: 25vw; }
+  }
 
   /* Sub-buttons */
   .sub-buttons {
@@ -150,28 +172,11 @@
     to { opacity: 1; transform: scale(1); }
   }
 
-  /* Responsive Design */
-  @media (max-width: 1200px) {
-    .button-container { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-  }
-
-  @media (max-width: 900px) {
-    .button-container { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-    button { width: 240px; height: 75px; font-size: 20px; }
-  }
-
-  @media (max-width: 600px) {
-    .button-container { grid-template-columns: 1fr; gap: 25px; }
-    button { width: 220px; height: 65px; font-size: 18px; }
-    .heading1, .heading2 { font-size: 38px; }
-    .heading3 { font-size: 22px; }
-  }
-
-  /* Scrolling Text */
+  /* Stylish Scrolling Text */
   .scroll-text {
     margin-top: 160px;
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 25px;
+    font-size: clamp(16px, 2.5vw, 25px);
     font-weight: bold;
     color: #FFD700;
     text-shadow: 3px 3px 6px #002366, 0 0 20px #fff;
@@ -192,13 +197,14 @@
     bottom: 10px;
     right: 20px;
     opacity: 0.1;
-    font-size: 120px;
+    font-size: clamp(40px, 15vw, 120px);
     font-weight: bold;
     color: #0d47a1;
     user-select: none;
     pointer-events: none;
   }
 
+  /* Footer */
   footer {
     text-align: center;
     padding: 15px;
@@ -262,8 +268,9 @@
     </p>
   </footer>
 
+  <!-- Stylish Scrolling Text -->
   <div class="scroll-text">
-    <marquee behavior="scroll" direction="left" scrollamount="12">
+    <marquee behavior="scroll" direction="LEFT" scrollamount="12">
       🌟✨ Welcome to the <span>Operating Department</span> COACHING PORTAL <span>of Guntur Division, South Central Railway</span> 🚂💼
     </marquee>
   </div>
@@ -286,7 +293,9 @@
     function openSub(url, id) {
       const submenu = document.getElementById(id);
       if (submenu) submenu.style.display = 'none';
-      setTimeout(() => { window.open(url, '_blank'); }, 100);
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 100);
     }
 
     document.addEventListener('click', function(event) {
